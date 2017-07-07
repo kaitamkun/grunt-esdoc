@@ -1,6 +1,6 @@
 # grunt-esdoc
 
-Grunt plugin for the ES6 documentation tool [ESDoc](https://esdoc.org/)
+Grunt plugin for the ES6 documentation tool [ESDoc](https://esdoc.org/).
 
 ## Install
 
@@ -14,70 +14,69 @@ npm install grunt-esdoc --save-dev
 
 Configure the plugin in your project's Gruntfile.js.
 
-First, add the `esdoc` entry to the options of the `initConfig` method :
+First, add an `esdoc` entry to the options for the `initConfig` method:
 
 ```javascript
 grunt.initConfig({
-    esdoc : {
-        dist : {
+    esdoc: {
+        dist: {
             options: {
-                source: './src',
-                destination: './doc'
+                source: "./src",
+                destination: "./doc"
             }
         }
     }
 });
 ```
-Then, load the plugin
+Then load the plugin:
 
 ```javascript
-grunt.loadNpmTasks('grunt-jsdoc');
+grunt.loadNpmTasks("grunt-esdoc");
 ```
 
 [All ESDoc config properties are allowed under options](https://esdoc.org/config.html).
 
 ```javascript
 grunt.initConfig({
-    esdoc : {
-        dist : {
+    esdoc: {
+        dist: {
             options: {
-              source: './path/to/src',
-              destination: './path/to/esdoc',
-              includes: ['\\.(js|es6)$'],
-              excludes: ['\\.config\\.(js|es6)$'],
-              access: ['public', 'protected'],
+              source: "./path/to/src",
+              destination: "./path/to/esdoc",
+              includes: ["\\.(jsx?|es6?)$"],
+              excludes: ["\\.config\\.(jsx?|es6?)$"],
+              access: ["public", "protected"],
               autoPrivate: true,
               unexportIdentifier: false,
               undocumentIdentifier: true,
               builtinExternal: true,
-              importPathPrefix: '',
-              index: './README.md',
-              package: './package.json',
+              importPathPrefix: "",
+              index: "./README.md",
+              package: "./package.json",
               coverage: true,
               test: {
-                type: 'mocha',
-                source: './test/src',
-                includes: ['Test\\.(js|es6)$'],
-                excludes: ['\\.config\\.(js|es6)$']
+                type: "mocha",
+                source: "./test/src",
+                includes: ["Test\\.(jsx?|es6?)$"],
+                excludes: ["\\.config\\.(jsx?|es6?)$"]
               }
-              title: 'My Software Name',
-              styles: ['./path/to/style.css'],
-              scripts: ['./path/to/script.js']
+              title: "Example Software Name",
+              styles: ["./path/to/style.css"],
+              scripts: ["./path/to/script.js"]
             }
         }
     }
 });
 ```
 
-Alternatively, you can pass
-a `config` option instead that is a path to a file containing the configuration options for ESDoc.
+Alternatively, you can use a `config` option that is a path to a file containing the configuration options for ESDoc.
 
 ```javascript
 grunt.initConfig({
-    esdoc : {
-        dist : {
+    esdoc: {
+        dist: {
             options: {
-                config: 'esdoc.json'
+                config: "esdoc.json"
             }
         }
     }
@@ -95,7 +94,7 @@ $> grunt esdoc
 or integrate it to your build sequence :
 
 ```javascript
-grunt.registerTask('default', ['lint', 'test', 'esdoc']);
+grunt.registerTask("default", ["lint", "test", "esdoc"]);
 ```
 
 ## Contributing
@@ -107,7 +106,10 @@ Any contribution is welcome! Please check the [issues](https://github.com/clever
  * _0.0.2_ Using esdoc ~0.4.0 and updated the package metadata with relevant links
  * _0.0.3_ Upgrade to at least node 4.0.0, upgrade to esdoc 0.4.7, cleaned up output to only show coverage by default
  * _0.0.4_ Will now parse float percentages of coverage
+ * _0.0.5_ Updated for esdoc 0.5.2.
 
 ## License
-Copyright (c) 2016 Cleversoap
+Copyright &copy; 2016 Cleversoap.
 Licensed under the MIT license.
+
+Modified by Kai Tamkun: [https://github.com/kaitamkun/grunt-esdoc](https://github.com/kaitamkun/grunt-esdoc)
